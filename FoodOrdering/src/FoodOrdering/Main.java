@@ -1,7 +1,7 @@
 package FoodOrdering;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-        new MVC();
-    }
+	public static void main(String[] args) throws Exception {
+		new MVC();
+	}
 }
