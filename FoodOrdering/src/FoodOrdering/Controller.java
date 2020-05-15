@@ -29,7 +29,6 @@ public class Controller extends WindowAdapter {
 				view.refresh();
 				readMainDataOrder();
 				showRequest(view.newOrder());
-				// view.newOrder().setVisible(true);
 			}
 		});
 		view.btnAddMenu.addActionListener(new ActionListener() {
