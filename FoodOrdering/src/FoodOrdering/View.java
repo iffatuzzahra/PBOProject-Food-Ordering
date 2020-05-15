@@ -62,35 +62,35 @@ public class View extends JFrame {
         setPreferredSize(dimensiMain);
 
         add(bOpenAdd);
-        bOpenAdd.setBounds(285, 40, 120, 20); // x,y,lebar,tinggi
         add(bOpenOrder);
+        bOpenAdd.setBounds(285, 40, 120, 20); // x,y,lebar,tinggi
         bOpenOrder.setBounds(425, 40, 120, 20);
 
         add(ldrink);
-        ldrink.setBounds(200, 80, 90, 20);
         scrollPane = new JScrollPane(tabeldrinkMain);
         add(scrollPane);
+        ldrink.setBounds(200, 80, 90, 20);
         scrollPane.setBounds(20, 110, 380, 210); // x,y,lebar,tinggi
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         add(leat);
-        leat.setBounds(200, 330, 90, 20);
         scrollPane = new JScrollPane(tabeleatMain);
         add(scrollPane);
+        leat.setBounds(200, 330, 90, 20);
         scrollPane.setBounds(20, 360, 380, 210); // x,y,lebar,tinggi
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         add(lhistory);
-        lhistory.setBounds(590, 80, 90, 20);
         scrollPane = new JScrollPane(tabelhistory);
         add(scrollPane);
+        lhistory.setBounds(590, 80, 90, 20);
         scrollPane.setBounds(430, 110, 380, 210); // x,y,lebar,tinggi
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         add(ldetailhistory);
-        ldetailhistory.setBounds(550, 330, 200, 20);
         scrollPane = new JScrollPane(tabeldetailhistory);
         add(scrollPane);
+        ldetailhistory.setBounds(550, 330, 200, 20);
         scrollPane.setBounds(430, 360, 380, 210); // x,y,lebar,tinggi
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
@@ -118,22 +118,23 @@ public class View extends JFrame {
         setPreferredSize(dimensiAddMenu);
 
         add(lName);
-        lName.setBounds(40, 40, 200, 20); // x,y,lebar,tinggi
         add(tfName);
-        tfName.setBounds(240, 40, 200, 20);
         add(lPrice);
-        lPrice.setBounds(40, 70, 200, 20);
         add(tfPrice);
-        tfPrice.setBounds(240, 70, 200, 20);
         add(lCategories);
-        lCategories.setBounds(40, 100, 200, 20);
         add(cmbCategories);
-        cmbCategories.setBounds(240, 100, 200, 20);
         add(btnAddMenu);
-        btnAddMenu.setBounds(180, 140, 100, 20);
         add(btnBack);
-        btnBack.setBounds(120, 180, 100, 20);
         add(btnClearAdd);
+
+        lName.setBounds(40, 40, 200, 20); // x,y,lebar,tinggi
+        tfName.setBounds(240, 40, 200, 20);
+        lPrice.setBounds(40, 70, 200, 20);
+        tfPrice.setBounds(240, 70, 200, 20);
+        lCategories.setBounds(40, 100, 200, 20);
+        cmbCategories.setBounds(240, 100, 200, 20);
+        btnAddMenu.setBounds(180, 140, 100, 20);
+        btnBack.setBounds(120, 180, 100, 20);
         btnClearAdd.setBounds(240, 180, 100, 20);
         pack();
         return currentFrame;
@@ -153,23 +154,23 @@ public class View extends JFrame {
         setPreferredSize(dimensiMain);
 
         add(ldrink);
-        ldrink.setBounds(200, 20, 90, 20);// (200,80,90,20)
         scrollPane = new JScrollPane(tabeldrinkOrder);
         add(scrollPane);
+        ldrink.setBounds(200, 20, 90, 20);// (200,80,90,20)
         scrollPane.setBounds(20, 50, 380, 240); // x,y,lebar,tinggi (20,110,380,210);
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         add(leat);
-        leat.setBounds(200, 300, 90, 20); // (200,340,90,20);
         scrollPane = new JScrollPane(tabeleatOrder);
         add(scrollPane);
+        leat.setBounds(200, 300, 90, 20); // (200,340,90,20);
         scrollPane.setBounds(20, 330, 380, 240); // x,y,lebar,tinggi (20,370,380,210);
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         add(basket);
-        basket.setBounds(590, 230, 90, 20);
         scrollPane = new JScrollPane(tabelbasket);
         add(scrollPane);
+        basket.setBounds(590, 230, 90, 20);
         scrollPane.setBounds(430, 260, 380, 310); // x,y,lebar,tinggi
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
