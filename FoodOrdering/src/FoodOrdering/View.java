@@ -175,16 +175,17 @@ public class View extends JFrame {
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
 		add(nama);
-		nama.setBounds(500, 50, 250, 20);
 		add(tfName);
-		tfName.setBounds(500, 80, 250, 20);
 		add(btnSelesaiOrder);
-		btnSelesaiOrder.setBounds(575, 130, 100, 20);
 		add(btnClearOrder);
-		btnClearOrder.setBounds(635, 170, 115, 20);
 		add(btnBack);
-		btnBack.setBounds(500, 170, 115, 20);
 		add(lTotal);
+
+		nama.setBounds(500, 50, 250, 20);
+		tfName.setBounds(500, 80, 250, 20);
+		btnSelesaiOrder.setBounds(575, 130, 100, 20);
+		btnClearOrder.setBounds(635, 170, 115, 20);
+		btnBack.setBounds(500, 170, 115, 20);
 		lTotal.setBounds(635, 490, 100, 20);
 		pack();
 		return currentFrame;
@@ -203,30 +204,31 @@ public class View extends JFrame {
 		setPreferredSize(dimensiMain);
 
 		add(lEditTitle);
+		add(lId);
+		add(tfId);
+		add(lName);
+		add(tfName);
+		add(lPrice);
+		add(tfPrice);
+		add(lCategories);
+		add(cmbCategories);
+		add(btnDeleteMenu);
+		add(btnChangeMenu);
+		add(btnBack);
+
 		lEditTitle.setBounds(90, 20, 100, 60);
 		lEditTitle.setFont(new Font("Calibri", Font.PLAIN, 24));
-		add(lId);
 		lId.setBounds(40, 80, 100, 20); // x,y,lebar,tinggi
-		add(tfId);
 		tfId.setBounds(165, 80, 200, 20);
 		tfId.setEditable(false);
-		add(lName);
 		lName.setBounds(40, 110, 100, 20);
-		add(tfName);
 		tfName.setBounds(165, 110, 200, 20);
-		add(lPrice);
 		lPrice.setBounds(40, 140, 100, 20);
-		add(tfPrice);
 		tfPrice.setBounds(165, 140, 200, 20);
-		add(lCategories);
 		lCategories.setBounds(40, 170, 100, 20);
-		add(cmbCategories);
 		cmbCategories.setBounds(165, 170, 200, 20);
-		add(btnDeleteMenu);
 		btnDeleteMenu.setBounds(430, 80, 150, 20);
-		add(btnChangeMenu);
 		btnChangeMenu.setBounds(430, 125, 150, 20);
-		add(btnBack);
 		btnBack.setBounds(430, 170, 150, 20);
 		return currentFrame;
 	}
@@ -240,7 +242,7 @@ public class View extends JFrame {
 	}
 
 	public String getPrice() {
-		return tfPrice.getText();	
+		return tfPrice.getText();
 	}
 
 	public String getCat() {
