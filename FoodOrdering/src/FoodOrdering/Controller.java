@@ -1,18 +1,14 @@
 package FoodOrdering;
 import java.awt.event.*;
 import javax.swing.*;
-//import javax.swing.JPanel;
-//import java.awt.GridLayout;
-//import javax.swing.*;
+
 public class Controller extends  WindowAdapter{
     Model model;
     View view;
-    
-    JFrame currentFrame = new JFrame(); 
+
     public Controller ( Model model, View view) {
         this.model = model;
         this.view = view;
-        
         readMainData();
         readHistory();
 
@@ -29,7 +25,6 @@ public class Controller extends  WindowAdapter{
                 view.refresh();
                 readMainDataOrder();
                 showRequest(view.newOrder());
-                //view.newOrder().setVisible(true);
             }
         });
         view.btnAddMenu.addActionListener(new ActionListener() {
@@ -50,12 +45,9 @@ public class Controller extends  WindowAdapter{
                 super.mousePressed(e);
                 int baris = view.tabeleatOrder.getSelectedRow();
                 int dataTerpilih = Integer.parseInt(view.tabeleatOrder.getValueAt(baris, 0).toString());
-                
                 System.out.println(dataTerpilih);
                 model.addToBasket(dataTerpilih);
                 readDataBasket();
-                //String dataMahasiswa[][] = model();
-                //view.tabelOrder.setModel(new JTable(dataMahasiswa, view.namaKolom).getModel());
             }
         });
         view.tabeldrinkOrder.addMouseListener(new MouseAdapter() {
@@ -63,7 +55,6 @@ public class Controller extends  WindowAdapter{
                 super.mousePressed(e);
                 int baris = view.tabeldrinkOrder.getSelectedRow();
                 int dataTerpilih = Integer.parseInt(view.tabeldrinkOrder.getValueAt(baris, 0).toString());
-                
                 System.out.println(dataTerpilih);
                 model.addToBasket(dataTerpilih);
                 readDataBasket();
@@ -92,7 +83,6 @@ public class Controller extends  WindowAdapter{
                 } else {
                     JOptionPane.showMessageDialog(null, "Tidak Jadi Dihapus");
                 }
-                
             }
         });
         view.tabeleatMain.addMouseListener(new MouseAdapter() {
@@ -131,9 +121,7 @@ public class Controller extends  WindowAdapter{
             public void actionPerformed(ActionEvent e) {
                 int id = view.getId();
                 int input = JOptionPane.showConfirmDialog(null, "Yakin Hapus Menu?", "Pilih Opsi : ", JOptionPane.YES_NO_OPTION);
-                
                 view.getContentPane().removeAll();
-
                 if (input==0) {
                     model.deleteMenu(id);
                     readMainData();
@@ -152,9 +140,7 @@ public class Controller extends  WindowAdapter{
                 int price = Integer.parseInt(view.getPrice());
                 String cat = view.getCat();
                 int input = JOptionPane.showConfirmDialog(null, "Yakin Mengubah Menu?", "Pilih Opsi : ", JOptionPane.YES_NO_OPTION);
-                
                 view.getContentPane().removeAll();
-                
                 if (input==0) {
                     model.updateMenu(id, name, price, cat);
                     readMainData();
@@ -173,11 +159,9 @@ public class Controller extends  WindowAdapter{
                 clearTextField();
                 model.truncateBasket();
                 readDataBasket();
-                //readMainData();
                 showRequest(view.mainView());
             }
         });
-        
     }
     
     public void readMainData() {
@@ -189,7 +173,6 @@ public class Controller extends  WindowAdapter{
             dataEat = model.readDataMain("Eat");  
             view.tabeldrinkMain.setModel((new JTable(dataDrink, view.kolom)).getModel());
             view.tabeleatMain.setModel((new JTable(dataEat, view.kolom)).getModel());
-            //JOptionPane.showMessageDialog(null, dataDrink);
         } catch (IllegalArgumentException i) {
             System.err.println(i); 
         }
@@ -199,7 +182,6 @@ public class Controller extends  WindowAdapter{
             String data[][] = new String[model.getBanyakDataOrder()][4];
             data = model.readOrderHistory();
             view.tabelhistory.setModel((new JTable(data, view.kolomH)).getModel());
-            //JOptionPane.showMessageDialog(null, data);
         } catch (IllegalArgumentException i) {
             System.err.println(i); 
         }
@@ -223,7 +205,6 @@ public class Controller extends  WindowAdapter{
             dataEat = model.readDataMain("Eat");  
             view.tabeldrinkOrder.setModel((new JTable(dataDrink, view.kolom)).getModel());
             view.tabeleatOrder.setModel((new JTable(dataEat, view.kolom)).getModel());
-            //JOptionPane.showMessageDialog(null, dataDrink);
         } catch (IllegalArgumentException i) {
             System.err.println(i); 
         }
@@ -247,8 +228,6 @@ public class Controller extends  WindowAdapter{
         view.cmbCategories.setSelectedItem("Eat");
     }
     public void showRequest (JFrame frame) {
-        //currentFrame.setVisible(false);
-        //currentFrame = frame;
         frame.setVisible(true);
     }
 }
