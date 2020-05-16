@@ -159,6 +159,7 @@ public class Controller extends  WindowAdapter{
                 clearTextField();
                 model.truncateBasket();
                 readDataBasket();
+                readMainData();
                 showRequest(view.mainView());
             }
         });
