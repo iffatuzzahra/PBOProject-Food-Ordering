@@ -45,7 +45,6 @@ public class Model {
                 data[p][0] = resultSet.getString("FoodId");
                 data[p][1] = resultSet.getString("FoodName");
                 data[p][2] = resultSet.getString("Price");
-                //resultSet.getString("Categories");
                 p++;
             }
         } catch (SQLException ex) {
@@ -61,7 +60,6 @@ public class Model {
             int p = 0;
             while (resultSet.next()) {
                 data[p][0] = Integer.toString(resultSet.getInt("OrderId"));
-                //data[p][0] = resultSet.getString("OrderId");
                 data[p][1] = resultSet.getString("CustomerName");
                 data[p][2] = Integer.toString(resultSet.getInt("OrderAmount"));
                 data[p][3] = Integer.toString(resultSet.getInt("Total"));
@@ -69,7 +67,6 @@ public class Model {
             } 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Data Gagal Ditampilkan!", "Hasil", JOptionPane.ERROR_MESSAGE);
-            //System.out.println(getBanyakDataOrder());
         } 
         return data;
     }
@@ -115,8 +112,7 @@ public class Model {
         } 
         return data;
     }
-    public void addToBasket(int id){
-        
+    public void addToBasket(int id) {
         int jmlData=0;
         int dataJml=0;
         try {
@@ -140,7 +136,6 @@ public class Model {
         } catch(SQLException e) {
             System.out.println(e.getMessage());
             System.out.println("SQL Errorr");
-            
         }
     }
     public void truncateBasket() {
@@ -151,7 +146,6 @@ public class Model {
         } catch(SQLException ex) {
             System.out.println(ex.getMessage());
             System.out.println("SQL Errorr");
-            
         }
     }
     public void addToOrder(String namaPemesan) {
@@ -162,7 +156,6 @@ public class Model {
             int data[][] = new int[getBanyakDataBasket()+1][3];
             statement = koneksi.createStatement();
             String query = "SELECT * FROM orderbasket JOIN food ON food.FoodId=orderbasket.FName ";
-            
             ResultSet setResult = statement.executeQuery(query);
             while (setResult.next()) {
                 data[jml][0] = setResult.getInt("FName");
@@ -187,7 +180,6 @@ public class Model {
         } catch(SQLException ex) {
             System.out.println(ex.getMessage());
             System.out.println("SQL Errorr");
-            
         }
     }
     public String[] getEditValue(int id) {
@@ -201,7 +193,6 @@ public class Model {
                 data[1] = setResult.getString("FoodName");
                 data[2] = Integer.toString(setResult.getInt("Price"));
                 data[3] = setResult.getString("Categories");
-                //jmlData++;
             }
         } catch(SQLException e) {
             System.out.println(e.getMessage());
@@ -236,7 +227,6 @@ public class Model {
             statement = koneksi.createStatement();
             String query = "SELECT * FROM food where Categories='"+cat+"'";
             ResultSet setResult = statement.executeQuery(query);
-
             while (setResult.next()) {
                 jmlData++;
             }
@@ -286,7 +276,6 @@ public class Model {
             statement = koneksi.createStatement();
             String query = "SELECT * FROM orderbasket";
             ResultSet setResult = statement.executeQuery(query);
-
             while (setResult.next()) {
                 jmlData++;
             }
