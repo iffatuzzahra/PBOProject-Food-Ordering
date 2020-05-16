@@ -4,21 +4,17 @@ import java.awt.Dimension;
 import javax.swing.table.*;
 import javax.swing.*;
 import java.awt.*;
-//import java.awt.event.*;
-//import javax.swing.JPanel;
-//import java.awt.GridLayout;
 public class View extends JFrame{
     
     /**
      *
      */
     private static final long serialVersionUID = 1L;
-    //final JWindow panel;
-    Controller control;
     JFrame currentFrame; 
-
+    //main variabel
     JButton bOpenAdd = new JButton("Add Menu");
     JButton bOpenOrder = new JButton("New Order");
+    JButton btnBack = new JButton("Back");
     String[] kolom = {"ID", "Name", "Price"};
     String[] kolomH = {"Order ID","Customer Name", "Amount","Total"};
     String[] kolomDH = {"Food ID","Amount","Price"};
@@ -31,7 +27,6 @@ public class View extends JFrame{
     JTable tabelhistory;
     JTable tabeldetailhistory;
     DefaultTableModel tableModel;
-    //DefaultTableModel tableModelBasket;
     JScrollPane scrollPane;
     Dimension dimensiMain;
     Dimension dimensiAddMenu;
@@ -39,6 +34,32 @@ public class View extends JFrame{
     JLabel ldrink = new JLabel("Drink");
     JLabel lhistory = new JLabel("Order History");
     JLabel ldetailhistory = new JLabel("Order Detail (ChooseHistory)");
+    
+    //AddMenu varaibel
+    JLabel lName = new JLabel("Name : ");
+    JTextField tfName = new JTextField();
+    JLabel lPrice = new JLabel("Price : ");
+    JTextField tfPrice = new JTextField();
+    JLabel lCategories = new JLabel("Categories : ");
+    String categories[]= {"Eat","Drink"};
+    JComboBox<String> cmbCategories = new JComboBox<>(categories);
+    JButton btnAddMenu = new JButton("Add Menu");
+    JButton btnClearAdd = new JButton("Clear");
+
+    //New Order variabel
+    JLabel basket = new JLabel("Basket");
+    JLabel nama = new JLabel("Customer Name : ");
+    JLabel lTotal = new JLabel();
+    JButton btnSelesaiOrder = new JButton("Order Now");
+    JButton btnClearOrder = new JButton("Clear/Reorder");
+    
+    //edit/update delete view variabel
+    JLabel lEditTitle = new JLabel("Data ");
+    JLabel lId = new JLabel("ID : ");
+    JTextField tfId = new JTextField();
+    JButton btnDeleteMenu = new JButton("Delete This Menu");
+    JButton btnChangeMenu = new JButton("Change Menu Value");
+
     public View() {
         dimensiMain = new Dimension(850,650);
         dimensiAddMenu = new Dimension(500,270); //lebar,tinggi
@@ -57,14 +78,11 @@ public class View extends JFrame{
     }
     public void refresh () {
         dispose();
-        //new MVC();
     }
-    
     public JFrame mainView() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         setLayout(null);
-        //setSize(850,570); //lebar,tinggi
         setPreferredSize(dimensiMain);
         
         add(bOpenAdd); bOpenAdd.setBounds(285,40,120,20); //x,y,lebar,tinggi
@@ -72,7 +90,6 @@ public class View extends JFrame{
         
         add(ldrink);
         ldrink.setBounds(200,80,90,20);
-        //tabel = new JTable(data,kolom);
         scrollPane = new JScrollPane(tabeldrinkMain);
         add(scrollPane);
         scrollPane.setBounds(20,110,380,210); //x,y,lebar,tinggi
@@ -102,25 +119,10 @@ public class View extends JFrame{
         pack();
         return currentFrame;
     }
-
-    JLabel lName = new JLabel("Name : ");
-    JTextField tfName = new JTextField();
-    JLabel lPrice = new JLabel("Price : ");
-    JTextField tfPrice = new JTextField();
-    JLabel lCategories = new JLabel("Categories : ");
-    String categories[]= {"Eat","Drink"};
-    JComboBox<String> cmbCategories = new JComboBox<>(categories);
-    
-
-    JButton btnAddMenu = new JButton("Add Menu");
-    JButton btnClearAdd = new JButton("Clear");
-    JButton btnBack = new JButton("Back");
-    public JFrame addMenuView() {
-        
+    public JFrame addMenuView() {   
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         setLayout(null);
-        //setSize(500,250); //lebar,tinggi
         setPreferredSize(dimensiAddMenu);
         
         add(lName); lName.setBounds(40,40,200,20); //x,y,lebar,tinggi
@@ -135,37 +137,24 @@ public class View extends JFrame{
         pack();
         return currentFrame;
     }
-    //JTextField tfName = new JTextField();
-    JLabel basket = new JLabel("Basket");
-    JLabel nama = new JLabel("Customer Name : ");
-    JLabel lTotal = new JLabel();
-
-    JButton btnSelesaiOrder = new JButton("Order Now");
-    JButton btnClearOrder = new JButton("Clear/Reorder");
     public JFrame newOrder() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         setLayout(null);
-        //setSize(850,570); //lebar,tinggi
         setPreferredSize(dimensiMain);
-        
-        //tableModel = new DefaultTableModel(kolom,0);
-        
+
         add(ldrink);
-        ldrink.setBounds(200,20,90,20);//(200,80,90,20)
-        //tabeldrink = new JTable(tableModel);
-        //tabel = new JTable(data,kolom);
+        ldrink.setBounds(200,20,90,20);
         scrollPane = new JScrollPane(tabeldrinkOrder);
         add(scrollPane);
-        scrollPane.setBounds(20,50,380,240); //x,y,lebar,tinggi (20,110,380,210);
+        scrollPane.setBounds(20,50,380,240); //x,y,lebar,tinggi
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         
         add(leat);
-        leat.setBounds(200,300,90,20); //(200,340,90,20);
-        //tabeleat = new JTable(tableModel);
+        leat.setBounds(200,300,90,20); 
         scrollPane = new JScrollPane(tabeleatOrder);
         add(scrollPane);
-        scrollPane.setBounds(20,330,380,240); //x,y,lebar,tinggi (20,370,380,210);
+        scrollPane.setBounds(20,330,380,240); //x,y,lebar,tinggi 
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         
         add(basket);
@@ -185,17 +174,10 @@ public class View extends JFrame{
         pack();
         return currentFrame;
     }
-    JLabel lEditTitle = new JLabel("Data ");
-    JLabel lId = new JLabel("ID : ");
-    JTextField tfId = new JTextField();
-    JButton btnDeleteMenu = new JButton("Delete This Menu");
-    JButton btnChangeMenu = new JButton("Change Menu Value");
-
     public JFrame EditDeleteView() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         setLayout(null);
-        //setSize(650,270); //lebar,tinggi
         setPreferredSize(dimensiMain);
 
         add(lEditTitle); lEditTitle.setBounds(90,20,100,60);
